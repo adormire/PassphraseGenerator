@@ -1,9 +1,10 @@
 import random
 import os
+import sys
 
 
-def show_results(password_list, number_of_options, number_of_words):
-    os.system('clear')
+def show_results(password_list, number_of_options, number_of_words, clear_command):
+    os.system(clear_command)
     print("--[ Random Passphrase Generator ]--\n")
 
     if int(number_of_options) > 1:
@@ -28,7 +29,7 @@ def show_results(password_list, number_of_options, number_of_words):
         print("Result:", result + "\n")
 
 
-def match_words(generated_rolls, number_of_options, number_of_words):
+def match_words(generated_rolls, number_of_options, number_of_words, clear_command):
     list_file = open("eff_list.txt", "r")
     word_list = list_file.readlines()
     list_file.close()
@@ -45,10 +46,10 @@ def match_words(generated_rolls, number_of_options, number_of_words):
                 trimmed_word = trimmed_word[0]
                 new_password.append(trimmed_word)
 
-    show_results(new_password, number_of_options, number_of_words)
+    show_results(new_password, number_of_options, number_of_words, clear_command)
 
 
-def generate_numbers(number_of_options, number_of_words):
+def generate_numbers(number_of_options, number_of_words, clear_command):
     generated_rolls = []
     group_total = 5
 
@@ -59,11 +60,23 @@ def generate_numbers(number_of_options, number_of_words):
                 roll_group = roll_group + str(random.randint(1, group_total))
             generated_rolls.append(roll_group)
 
-    match_words(generated_rolls, number_of_options, number_of_words)
+    match_words(generated_rolls, number_of_options, number_of_words, clear_command)
+
+
+def get_system_platform():
+    platform = sys.platform
+    if platform == 'darwin':
+        clear_command = 'clear'
+    elif platform == 'win32':
+        clear_command = 'cls'
+    else:
+        clear_command = 'clear'
+    return clear_command
 
 
 def password_generator():
-    os.system('clear')
+    clear_command = get_system_platform()
+    os.system(clear_command)
     input_check1 = False
     input_check2 = False
     number_of_words = 0
@@ -87,7 +100,7 @@ def password_generator():
         except ValueError:
             print('Numbers only, please.')
 
-    generate_numbers(number_of_options, number_of_words)
+    generate_numbers(number_of_options, number_of_words, clear_command)
 
 
 password_generator()
