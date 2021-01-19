@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="extras.css">
+  <script src="jquery-3.5.1.js" defer></script>
+  <script src="app.js" defer></script>
+  <title>Passphrase Generator</title>
+</head>
+
+<body class="bg-gradient-to-br from-blue-600 to-blue-800 subpixel-antialiased box-border">
+  <section class="flex text-center justify-center items-center h-screen w-screen h mx-auto text-white">
+    <div class="grid grid-cols-1 grid-rows-2 w-3/4 h-2/4 mx-auto">
+      <div class="grid col-span-1 border-2 border-opacity-50 rounded-lg border-indigo-100 bg-purple-200 justify-center items-center text-indigo-800">
+        <h1 class="text-4xl" id="headerText">Passphrase Generation Tool</h1>
+      </div>
+      <div class="grid grid-cols-2 border-2 border-opacity-50 rounded-lg border-white justify-center items-center bg-indigo-800 p-6">
+        <div class="text-xl col-span-1">Words per phrase:
+          <input type="text" placeholder="0" id="wordsInPhrase" class="px-5 py-3 my-3 placeholder-gray-500 text-gray-700 relative bg-white rounded text-sm border border-indigo-200 outline-none focus:outline-none focus:shadow-outline w-1/2" />
+        </div>
+        <div class="text-xl col-span-1">Sets to be generated:
+          <input type="text" placeholder="0" id="desiredSetsGenerated" class="px-5 py-3 my-3 placeholder-gray-500 text-gray-700 relative bg-white rounded text-sm border border-indigo-200 outline-none focus:outline-none focus:shadow-outline w-1/2" />
+        </div>
+      </div>
+      <div class="grid border-2 border-opacity-50 rounded-lg bg-indigo-800 border-white justify-center items-center h-32">
+        <div class="text-center" id="passwordResults"></div>
+      </div>
+    </div>
+  </section>
+</body>
+
+</html>

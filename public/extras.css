@@ -1,0 +1,25 @@
+/* @import url(fonts/Roboto-Regular.ttf);
+@import url(fonts/RobotoCondensed-Regular.ttf); */
+
+@font-face {
+  font-family: Roboto;
+  src: url(fonts/Roboto-Regular.ttf);
+}
+
+@font-face {
+  font-family: Roboto-Condensed;
+  src: url(fonts/RobotoCondensed-Regular.ttf);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+#headerText {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  font-family: 'Roboto', sans-serif !important;
+}
+
+section>div {
+  font-family: 'Roboto-Condensed', sans-serif;
+}
